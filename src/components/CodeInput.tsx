@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload } from "lucide-react";
 import { motion } from "framer-motion";
 import Pixelate from "./Pixelate";
-
 
 interface CodeInputProps {
   onSubmitCode: (code: string) => void;
@@ -14,6 +13,7 @@ interface CodeInputProps {
 const CodeInput = ({ onSubmitCode, isLoading }: CodeInputProps) => {
   const [code, setCode] = useState("");
   const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
     if (code.trim()) {
@@ -55,6 +55,10 @@ const CodeInput = ({ onSubmitCode, isLoading }: CodeInputProps) => {
       setCode(content);
     };
     reader.readAsText(file);
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -104,11 +108,17 @@ const CodeInput = ({ onSubmitCode, isLoading }: CodeInputProps) => {
           <input
             type="file"
             id="file-upload"
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            ref={fileInputRef}
+            className="hidden"
             onChange={handleFileUpload}
             accept=".js,.jsx,.ts,.tsx,.py,.java,.c,.cpp,.rb,.go,.php,.html,.css"
           />
-          <Button variant="outline" className="w-full gap-2 bg-secondary/50 backdrop-blur-sm">
+          <Button 
+            variant="outline" 
+            className="w-full gap-2 bg-secondary/50 backdrop-blur-sm"
+            onClick={triggerFileUpload}
+            type="button"
+          >
             <Upload size={16} /> Upload File
           </Button>
         </div>
