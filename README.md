@@ -1,6 +1,6 @@
 ![CodeLens Banner](/public/banner.png)
 
-`CodeLens`
+[`CodeLens`](https://clens.vercel.app/)
 # Ship quality at scale.
 ### Review smart. Merge fast. Ship better.
 
@@ -22,7 +22,7 @@ In today's ai generated messy code, Humans miss out reviewing them properly.. le
 - **Vulnerability Scanning**: Identify security issues before they become exploitable
 - **AI-Powered Reviews**: Get intelligent suggestions to improve code quality
 
-## 🔧 Technologies
+## Technologies
 
 This project is built with:
 
@@ -84,8 +84,8 @@ This project is built with:
 ![Code Review Interface](/public/review.png)
 ![Vulnerability Interface](/public/review2.png)
 
-## Demo
-(soon)
+### [Demo](https://youtu.be/GTuf863pShE)
+
 
 ## License
 This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
